@@ -1,0 +1,23 @@
+{
+  "name": "cafeteria",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "gulp": "^5.0.0",
+    "gulp-dart-sass": "^1.1.0",
+    "gulp-postcss": "^10.0.0",
+    "sass": "^1.81.0"
+  },
+  "browserslist": [
+    "last 1 version",
+    ">1%"
+  ]
+}
