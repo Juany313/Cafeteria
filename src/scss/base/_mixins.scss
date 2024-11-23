@@ -16,4 +16,10 @@
     @media (min-width: v.$desktop) {
         @content
     }
+};
+
+@mixin grid($columnas, $espaciado) {
+    display: grid;
+    grid-template-columns: repeat($columnas,1fr);
+    column-gap: $espaciado;
 }
