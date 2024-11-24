@@ -17,6 +17,11 @@
         @content
     }
 };
+@mixin desktop2 {
+    @media (min-width: v.$desktop2) {
+        @content
+    }
+};
 
 @mixin grid($columnas, $espaciado) {
     display: grid;
