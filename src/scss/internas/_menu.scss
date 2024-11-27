@@ -1,2 +1,42 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+
+.contenedor-principal-menu {
+    background-color: #FFFFFF;
+    margin-top: -10rem;
+    position: relative;
+    padding: 5rem 2rem;
+    @include m.tablet { 
+        padding: 5rem;
+    }
+    @include m.desktop { 
+        padding: 8rem;
+    }
+}
+.contenido-menu {
+    background-image: url('../img/cafe.jpg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100%;
+    aspect-ratio: 3 / 5; //cada 3px de ancho le da 5px de alto
+    
+    @include m.telefono { 
+        aspect-ratio: 3 / 4;
+    }
+    @include m.tablet { 
+        @include m.grid(2, v.$separacion);
+        aspect-ratio: 16 / 7;
+        background-size: 56%;
+        background-position: bottom right;
+    }
+    @include m.tablet2 { 
+        background-size: 50%;
+    }
+    @include m.desktop { 
+        .texto {
+            p {
+                font-size: 2rem;
+            }
+        }
+    }
+}
