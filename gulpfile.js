@@ -5,6 +5,7 @@ import { src, dest, watch, series, parallel } from 'gulp';
 import gulpSass from 'gulp-dart-sass';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
+import sourcemaps from 'gulp-sourcemaps'
 
 //Imagenes
 import imagemin from 'gulp-imagemin';
@@ -16,6 +17,7 @@ import avif from 'gulp-avif';
 function css(done) {
     // Compilar Sass
     src('src/scss/app.scss') // Paso 1: identificar archivo
+        .pipe(sourcemaps.init())
         .pipe(gulpSass())
         .on('error', (err) => {
             console.error('Error en Sass:', err.message); // Muestra solo el mensaje
@@ -24,10 +26,12 @@ function css(done) {
         .pipe(postcss([autoprefixer()]).on('error', (err) => {
             console.error('Error en PostCSS:', err.message); // Mostrar solo el mensaje del error
         }))
+        .pipe(sourcemaps.write('.'))
         .pipe(dest('build/css')); // Paso 3: guardar el css
 
     done();
 }
+
 function imagenes() {
     return src('src/img/**/*', { allowEmpty: true }) // Permitir carpetas vacías
         .pipe(dest('build/img')); // Copiar sin ningún procesamiento
